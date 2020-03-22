@@ -21,21 +21,24 @@
 ## 三、实验过程与结果   
 
 （一）
-1分别用fork和vfork函数创建子进程（部分代码截屏）
+
+1. 分别用fork和vfork函数创建子进程（部分代码截屏）
 
 ![avatar](./lab2-picture/lab2-1.png)
 
-2执行fork函数
+2. 执行fork函数
 
 ![avatar](./lab2-picture/lab2-2.png)
 
-3执行vfork函数
+3. 执行vfork函数
 
 ![avatar](./lab2-picture/lab2-3.png)
 
-（二）编写fork()多进程程序，进程间模拟信号通信， 包括信号发送、捕捉与处理
+（二）
+编写fork()多进程程序，进程间模拟信号通信， 包括信号发送、捕捉与处理
 
 ![avatar](./lab2-picture/lab2-4.png)
+
 （三）
 开启服务器
 
