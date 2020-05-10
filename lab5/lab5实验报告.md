@@ -36,7 +36,7 @@
 ### 1.编译内核
 
 构建内核主要有两种方法。第一种是在Raspberry Pi上本地构建，花费的时间或特别长。第二种是交叉编译，速度快，但是设置比较麻烦。这里使用交叉编译的方法构建内核。Linux交叉编译主机使用Ubuntu虚拟机。因为Raspbian也是Debian发行版，两者如命令行等许多方面都相似。
-
+    
 将工具链下载到主文件夹：
 
 	git clone https://github.com/raspberrypi/tools 
@@ -58,8 +58,28 @@
 	KERNEL=kernel7
 	make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2709_defconfig
 
+### 2.裁剪与重新配置
 
+参考链接`https://www.raspberrypi.org/documentation/linux/kernel/configuring.md`
 
+Linux内核配置通常是通过make menuconfig界面完成
+首先安装menuconfig工具
+
+    sudo apt install libncurses5-dev
+
+在打开的menuconfig界面里依次根据提示选择Y或N
+
+使用make clean清理之前的内核
+
+使用交叉编译，按以下方式编译和运行menuconfig实用程序
+
+    make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
+
+该menuconfig实用程序具有简单的键盘导航。经过简短的编译，您将看到一个子菜单列表，其中包含可以配置的所有选项，使用箭头键进行导航，使用Enter键进入子菜单
+
+之后回车，然后选择默认设置。完成所需的更改后，请按Escape，直到提示保存新配置。默认情况下，这将保存到.config文件中，之后可以通过复制该文件来保存和加载配置。
+
+之后重新执行前面的命令即可
 
 ###3.模块的加载与卸载
 
@@ -108,7 +128,7 @@
 
 
 ## 四、实验总结 总结实验收获 描述未解决的问题  ##
-
+ 本次实验中小组熟悉掌握了裁剪Linux内核的方法，进一步理解了内核选项的意义；试验熟悉了编译内核并加载内核到目标系统的方法与过程； 了解了模块与内核的关系，掌握内核模块配置编译、安装与卸载流程，为进一步编程，如驱动编程打下基础；也掌握了创建、安装(卸载)并使用文件系统的方法。
 
 
 
